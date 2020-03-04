@@ -36,9 +36,32 @@ const findRepoId = (client, owner, repoName) => {
   return client.request(query, vars)
 }
 
+const createIssue = (client, repoId, title, body) => {
+
+  const mutation = /* GraphQL */ `
+  mutation createIssue($repoId: String!, $title: String!, $body: String!) {
+    createIssue(input:{repositoryId:$repoId, title:$title, body:$body}) {
+      issue {
+        title,
+        body
+      }
+    }
+  }`
+
+  const vars = {
+    repoId,
+    title,
+    body,
+  }
+
+  return client.request(mutation, vars)
+}
+
 module.exports.hello = async event => {
 
   const repoIdRes = await findRepoId(client, "poc-cookies", "friendlyhello");
+  await createIssue(client, repoIdRes.repository.id, "Serverless JS GQL Test 1", "Issue Body YO") // Check the list of issues of the target repo
+
   return {
     statusCode: 200,
     body: JSON.stringify(
