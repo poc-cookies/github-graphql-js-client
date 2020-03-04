@@ -2,5 +2,8 @@
   "name": "github-graphql-js-client",
   "version": "1.0.0",
   "description": "Github GraphQL NodeJS Serverless Client",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "graphql-request": "^1.8.2"
+  }
 }
