@@ -11,3 +11,11 @@
 Invoke the Function on your machine:
 
     GITHUB_TOKEN={your_github_token} serverless invoke local -f hello -l
+
+Deploy the service (requires AWS credentials):
+
+    serverless deploy -v
+
+Remove the service (requires AWS credentials):
+
+    serverless remove
