@@ -8,9 +8,13 @@
 
 ## Commands
 
-Invoke the Function on your machine:
+Invoke the Function on your local machine:
 
     GITHUB_TOKEN={your_github_token} serverless invoke local -f hello -l
+
+Invoke the Function on you local machine with params:
+
+    GITHUB_TOKEN={your_github_token} serverless invoke local -f hello -l --data '{"issueTitle": "title1", "issueBody": "body1"}'
 
 Deploy the service (requires AWS credentials):
 

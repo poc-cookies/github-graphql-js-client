@@ -60,14 +60,16 @@ const createIssue = (client, repoId, title, body) => {
 module.exports.hello = async event => {
 
   const repoIdRes = await findRepoId(client, "poc-cookies", "friendlyhello");
-  await createIssue(client, repoIdRes.repository.id, "Serverless JS GQL Test 1", "Issue Body YO") // Check the list of issues of the target repo
+  const {issueTitle, issueBody} = event;
+  await createIssue(client, repoIdRes.repository.id, issueTitle, issueBody) // Check the list of issues of the target repo
 
   return {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: (JSON.stringify(repoIdRes, null, 2)),
-        input: event,
+        repoId: repoIdRes.repository.id,
+        issueTitle,
+        issueBody,
       },
       null,
       2
