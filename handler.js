@@ -39,7 +39,7 @@ const findRepoId = (client, owner, repoName) => {
 const createIssue = (client, repoId, title, body) => {
 
   const mutation = /* GraphQL */ `
-  mutation createIssue($repoId: String!, $title: String!, $body: String!) {
+  mutation createIssue($repoId: ID!, $title: String!, $body: String!) {
     createIssue(input:{repositoryId:$repoId, title:$title, body:$body}) {
       issue {
         title,
