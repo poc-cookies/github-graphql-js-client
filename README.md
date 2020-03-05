@@ -1,5 +1,11 @@
 # Getting Fun with GitHub Graphql API & Serverless JS
 
+## Prerequisites
+
+1. npm 6+
+2. nodejs 12+
+3. serverless
+
 ## Commands
 
 Invoke the Function on your machine:
